@@ -1,0 +1,53 @@
+.classical_piece {
+	background-image: url(../img/sprites/classical_pieces.png);
+	height: 40px;
+	width: 40px;
+}
+
+.king_white {
+	background-position: 1px 0px;
+}
+
+.queen_white {
+	background-position: -35px 0px;
+}
+
+.bishop_white {
+	background-position: -72px 0px;
+}
+
+.knight_white {
+	background-position: -108px 0px;
+}
+
+.rock_white {
+	background-position: -144px 0px;
+}
+
+.pawn_white {
+	background-position: -182px 0px;
+}
+
+.king_black {
+	background-position: 0px -32px;
+}
+
+.queen_black {
+	background-position: -32px -32px;
+}
+
+.bishop_black {
+	background-position: -64px -32px;
+}
+
+.knight_black {
+	background-position: -96px -32px;
+}
+
+.rock_black {
+	background-position: -128px -32px;
+}
+
+.pawn_black {
+	background-position: -160px -32px;
+}
