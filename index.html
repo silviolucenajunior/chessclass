@@ -7,10 +7,12 @@
    </head>
    <body>
       <div id='chessboard-container'></div>
+      <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
       <script type="text/javascript" src="js/board.js"></script>
       <script type="text/javascript">
          var chessboard = new Board("chessboard-container");
          chessboard.renderHTMLBoard();
+         chessboard.setToStartPosition();
       </script>
    </body> 
 </html>

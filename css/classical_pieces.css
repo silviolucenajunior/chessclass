@@ -1,5 +1,6 @@
 .classical_piece {
 	background-image: url(../img/sprites/classical_pieces.png);
+	display: block;
 	height: 40px;
 	width: 40px;
 }
@@ -29,25 +30,25 @@
 }
 
 .king_black {
-	background-position: 0px -32px;
+	background-position: 1px -34px;
 }
 
 .queen_black {
-	background-position: -32px -32px;
+	background-position: -35px -34px;
 }
 
 .bishop_black {
-	background-position: -64px -32px;
+	background-position: -72px -34px;
 }
 
 .knight_black {
-	background-position: -96px -32px;
+	background-position: -108px -34px;
 }
 
 .rock_black {
-	background-position: -128px -32px;
+	background-position: -144px -34px;
 }
 
 .pawn_black {
-	background-position: -160px -32px;
+	background-position: -182px -34px;
 }
