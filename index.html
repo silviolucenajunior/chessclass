@@ -4,15 +4,24 @@
       <link type="text/css" href="css/video.css" />	
       <link rel="stylesheet" type="text/css" href="css/board.css" />
       <link rel="stylesheet" type="text/css" href="css/classical_pieces.css" />
+      <link rel="stylesheet" type="text/css" href="js/chessboardjs/css/chessboard.css" />
    </head>
    <body>
-      <div id='chessboard-container'></div>
+      <div id='chessboard-container' style="width: 400px;"></div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+      <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>      
+      <script type="text/javascript" src="js/chessboardjs/js/chessboard.js"></script>
+      <script type="text/javascript" src="js/chess.js"></script>
       <script type="text/javascript" src="js/board.js"></script>
       <script type="text/javascript">
-         var chessboard = new Board("chessboard-container");
-         chessboard.renderHTMLBoard();
-         chessboard.setToStartPosition();
+         var chessboard = new ChessBoard("chessboard-container", {
+            draggable: true,
+            position: 'start',
+            onDrop: function onDrop(source, target, piece, newPos, oldPos, orientation){
+               console.log(source);
+               console.log(target);
+            }
+         });
       </script>
    </body> 
 </html>
