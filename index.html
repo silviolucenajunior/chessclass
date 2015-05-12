@@ -9,17 +9,21 @@
    <body>
       <div id='chessboard-container' style="width: 400px;"></div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-      <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>      
+      <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+      <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+
       <script type="text/javascript" src="js/chessboardjs/js/chessboard.js"></script>
       <script type="text/javascript" src="js/chess.js"></script>
       <script type="text/javascript" src="js/board.js"></script>
       <script type="text/javascript">
+         var socket = io('http://127.0.0.1:3000'); 
          var chessboard = new ChessBoard("chessboard-container", {
             draggable: true,
             position: 'start',
             onDrop: function onDrop(source, target, piece, newPos, oldPos, orientation){
                console.log(source);
                console.log(target);
+               socket.emit('move', source);
             }
          });
       </script>
