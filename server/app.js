@@ -13,6 +13,7 @@ io.on('connection', function(socket){
   console.log('a user connected');
   socket.on('move', function(msg){
     console.log('move: ' + msg);
+    io.emit('move', msg);
   });
 });
 
