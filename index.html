@@ -5,6 +5,21 @@
       <link rel="stylesheet" type="text/css" href="css/board.css" />
       <link rel="stylesheet" type="text/css" href="css/classical_pieces.css" />
       <link rel="stylesheet" type="text/css" href="js/chessboardjs/css/chessboard.css" />
+      <style type="text/css">
+         .square-mark {
+            background-color: #c3c3c3;
+            display: block;
+            height: 100%;
+            width: 100%;
+            position: relative;
+            top: -54px;
+         }
+
+         .piece-417db {
+            position: relative;
+            z-index: 9999;
+         }
+      </style>
    </head>
    <body>
       <div id='chessboard-container' style="width: 400px;"></div>
@@ -15,7 +30,9 @@
       <script type="text/javascript" src="js/chessboardjs/js/chessboard.js"></script>
       <script type="text/javascript" src="js/chess.js"></script>
       <script type="text/javascript" src="js/board.js"></script>
+      <script type="text/javascript" src="js/chessboard_tools.js"></script>
       <script type="text/javascript">
+         window.dragStop = false;
          
          
          var chessboard = new ChessBoard("chessboard-container", {
@@ -27,6 +44,9 @@
                socket.emit('move', source + '-' + target);
             }
          });
+
+         var chessboard_tool = new ChessBoardTools();
+         chessboard_tool.enableMarkSquare();
 
          var socket = io('http://127.0.0.1:3000'); 
          socket.on('move', function(data){

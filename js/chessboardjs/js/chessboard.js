@@ -1489,7 +1489,11 @@ function mousedownSquare(e) {
     return;
   }
 
-  beginDraggingPiece(square, CURRENT_POSITION[square], e.pageX, e.pageY);
+  if (!window.dragStop) {
+     beginDraggingPiece(square, CURRENT_POSITION[square], e.pageX, e.pageY);  
+  }
+
+  
 }
 
 function touchstartSquare(e) {
