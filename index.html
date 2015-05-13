@@ -16,10 +16,7 @@
       <script type="text/javascript" src="js/chess.js"></script>
       <script type="text/javascript" src="js/board.js"></script>
       <script type="text/javascript">
-         var socket = io('http://127.0.0.1:3000'); 
-         socket.on('move', function(data){
-            console.log("moved " + data);
-         });
+         
          
          var chessboard = new ChessBoard("chessboard-container", {
             draggable: true,
@@ -27,9 +24,16 @@
             onDrop: function onDrop(source, target, piece, newPos, oldPos, orientation){
                console.log(source);
                console.log(target);
-               socket.emit('move', source);
+               socket.emit('move', source + '-' + target);
             }
          });
+
+         var socket = io('http://127.0.0.1:3000'); 
+         socket.on('move', function(data){
+            console.log("moved " + data);
+            chessboard.move(data);
+         });
+
       </script>
    </body> 
 </html>
