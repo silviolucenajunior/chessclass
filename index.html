@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<!--
+TODO: Use KonvaJS to Develop a new ChessBoard Engine with Canvas;
+-->
 <html>
    <head>
       <link type="text/css" href="css/video.css" />	
@@ -23,6 +26,11 @@
    </head>
    <body>
       <div id='chessboard-container' style="width: 400px;"></div>
+      <div id="chessboard-controlls">
+         <button id="clear-board">Clear Board</button>
+         <button id="flip-board">Flip Board</button>
+         <button id="start-position">Start Position</button>
+      </div>
       <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
       <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
       <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
@@ -31,6 +39,7 @@
       <script type="text/javascript" src="js/chess.js"></script>
       <script type="text/javascript" src="js/board.js"></script>
       <script type="text/javascript" src="js/chessboard_tools.js"></script>
+      <script type="text/javascript" src="js/chessboard_controlls.js"></script>
       <script type="text/javascript">
          window.dragStop = false;
          
@@ -46,13 +55,17 @@
          });
 
          var chessboard_tool = new ChessBoardTools();
-         chessboard_tool.enableMarkSquare();
+        // chessboard_tool.enableMarkSquare();
+
+
 
          var socket = io('http://127.0.0.1:3000'); 
          socket.on('move', function(data){
             console.log("moved " + data);
             chessboard.move(data);
          });
+
+         chessboard_controlls = new ChessBoardControlls(chessboard, socket);
 
       </script>
    </body> 
